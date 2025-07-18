@@ -1,0 +1,46 @@
+.contact-footer {
+  background: #fff;
+  padding: 5vw 0 3vw 0;
+  border-top: 2px solid #222;
+  color: #111;
+  width: 100vw;
+}
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2vw 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vw;
+}
+.contact-title {
+  font-family: 'Canopee', serif;
+  font-size: 2.8vw;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #111;
+  margin-bottom: 1vw;
+}
+.contact-info {
+  font-family: 'Inter', 'DM Sans', Arial, sans-serif;
+  font-size: 1.2vw;
+  color: #25283B;
+  margin-bottom: 1vw;
+  margin-top: 0.5rem;
+  box-shadow: 0 1px 4px #0005;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.contact-form button:hover {
+  background: #232946;
+  color: #f4d35e;
+}
+.contact-copyright {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #f4d35e;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}

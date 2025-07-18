@@ -1,0 +1,122 @@
+/* About section: horizontal row, centered, responsive */
+.about-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100vw;
+  min-height: 100px;
+  background: #f3f3f3;
+  color: #111;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.1vw;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 2vw 0 0 0;
+}
+
+.about-nav {
+  display: flex;
+  align-items: center;
+  font-size: 1.15vw;
+  font-weight: 700;
+  margin-left: 1vw;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: #111;
+}
+
+.about-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.4em;
+  margin-top: 0.1em;
+}
+
+.about-main {
+  flex: 1 1 auto;
+  max-width: 600px;
+  margin: 0 2vw;
+  font-size: 1.1vw;
+  font-weight: 700;
+  color: #111;
+  text-align: left;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  background: none;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.about-main b {
+  font-size: 1.1vw;
+  font-weight: 700;
+  color: #111;
+  text-align: left;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  background: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.about-copyright {
+  margin-right: 1vw;
+  font-size: 1.1vw;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  align-self: flex-start;
+}
+
+.about-copyright b {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 2.6vw;
+    padding: 3vw 0 0 0;
+  }
+  .about-nav {
+    font-size: 2.6vw;
+    margin-left: 2vw;
+    margin-bottom: 1vw;
+  }
+  .about-main, .about-main b {
+    font-size: 2.6vw;
+    max-width: 95vw;
+    margin: 0 2vw 1vw 2vw;
+  }
+  .about-copyright {
+    font-size: 2.6vw;
+    margin-right: 2vw;
+    margin-bottom: 1vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 4vw 0 0 0;
+  }
+  .about-nav, .about-main, .about-main b, .about-copyright {
+    font-size: 3.7vw;
+  }
+  .about-main, .about-main b {
+    max-width: 98vw;
+    margin: 0 1vw 1vw 1vw;
+  }
+  .about-nav {
+    margin-left: 2vw;
+    margin-bottom: 2vw;
+  }
+  .about-copyright {
+    margin-right: 2vw;
+    margin-bottom: 2vw;
+  }
+}

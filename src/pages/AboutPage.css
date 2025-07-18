@@ -1,0 +1,46 @@
+.aboutme-main {
+  background: #fff;
+  color: #111;
+  min-height: 80vh;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 5vw 2vw 5vw 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vw;
+}
+.aboutme-hero {
+  text-align: center;
+}
+.aboutme-title {
+  font-family: 'Canopee', serif;
+  font-size: 4vw;
+  font-weight: 900;
+  margin-bottom: 1vw;
+  letter-spacing: -1px;
+}
+.aboutme-body {
+  font-family: 'Inter', 'DM Sans', Arial, sans-serif;
+  font-size: 1.3vw;
+  color: #222;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.aboutme-details {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 700px;
+}
+.aboutme-details h2 {
+  font-family: 'Canopee', serif;
+  font-size: 2vw;
+  margin-top: 2vw;
+  margin-bottom: 0.5vw;
+}
+.aboutme-details p {
+  font-family: 'Inter', 'DM Sans', Arial, sans-serif;
+  font-size: 1.1vw;
+  color: #222;
+  line-height: 1.6;
+}

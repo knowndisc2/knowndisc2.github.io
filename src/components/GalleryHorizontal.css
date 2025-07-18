@@ -1,0 +1,107 @@
+/* Modern, minimal, chaotic horizontal gallery */
+.gallery-horizontal-section {
+  width: 100vw;
+  background: #f8fafd;
+  padding: 0 0 3vw 0;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 48vh;
+}
+.gallery-horizontal-container {
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+  padding: 4vw 6vw 4vw 6vw;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: relative;
+  min-height: 32vh;
+}
+.gallery-horizontal-container::-webkit-scrollbar {
+  display: none;
+}
+.gallery-horizontal-image-wrap {
+  scroll-snap-align: start;
+  flex: 0 0 28vw;
+  min-width: 260px;
+  max-width: 420px;
+  aspect-ratio: 4/3;
+  border-radius: 2.5vw;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 32px #0001, 0 1.5px 8px #1e90ff22;
+  background: #fff;
+  transition: box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-horizontal-image-wrap:hover {
+  box-shadow: 0 8px 48px #1e90ff66, 0 2px 12px #ff3c3c33;
+  transform: scale(1.04) rotate(-1.5deg);
+  z-index: 2;
+}
+.gallery-horizontal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f8fafd;
+  transition: filter 0.4s, transform 0.4s;
+  filter: brightness(0.98) contrast(1.04) saturate(1.1);
+  border-radius: 2vw;
+  box-shadow: 0 1px 12px #1e90ff0a;
+}
+.gallery-horizontal-image::after {
+  content: "Image not found";
+  display: block;
+  color: #ccc;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.gallery-chaos {
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.22;
+  mix-blend-mode: lighten;
+  border-radius: 50%;
+}
+.chaos1 {
+  width: 18vw;
+  height: 18vw;
+  background: radial-gradient(circle, #1e90ff 0%, #fff0 80%);
+  top: 8vw;
+  left: 10vw;
+  animation: floatChaos1 5s infinite alternate cubic-bezier(.4,2,.6,1);
+}
+.chaos2 {
+  width: 14vw;
+  height: 14vw;
+  background: radial-gradient(circle, #ff3c3c 0%, #fff0 80%);
+  top: 2vw;
+  left: 52vw;
+  animation: floatChaos2 6s infinite alternate cubic-bezier(.4,2,.6,1);
+}
+.chaos3 {
+  width: 10vw;
+  height: 10vw;
+  background: radial-gradient(circle, #00e0ff 0%, #fff0 80%);
+  top: 16vw;
+  left: 70vw;
+  animation: floatChaos3 7s infinite alternate cubic-bezier(.4,2,.6,1);
+}
+@keyframes floatChaos1 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-2vw) scale(1.12); }
+}
+@keyframes floatChaos2 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(2vw) scale(0.97); }
+}
+@keyframes floatChaos3 {
+  0% { transform: translateX(0) scale(1); }
+  100% { transform: translateX(2vw) scale(1.07); }
+}
