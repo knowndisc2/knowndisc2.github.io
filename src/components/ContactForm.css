@@ -1,0 +1,257 @@
+/* Contact Form Section */
+.contact-form-section {
+  background-color: #0a0a0a;
+  color: #fff;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200%;
+}
+
+.contact-container {
+  max-width: 2000px;
+
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.section-title {
+  font-size: 3rem;
+  font-family: "Canopee", serif;
+  text-align: center;
+  margin: 0 auto 1.5rem;
+  font-weight: normal;
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: #fff;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  position: relative;
+  z-index: 2;
+  background: transparent !important; /* Ensure background is transparent */
+}
+
+/* Hide the actual placeholder text */
+.form-input::placeholder {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.textarea {
+  resize: none;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.form-label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  padding: 0;
+  color: #666;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  z-index: 1;
+  background: transparent;
+  transform-origin: left center;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label,
+.form-input:-webkit-autofill ~ .form-label {
+  top: -0.5rem;
+  left: 0;
+  color: #fff;
+  font-size: 0.8rem;
+  background: transparent;
+  padding-right: 5px;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.form-input:focus {
+  border-bottom-color: #fff;
+}
+
+.submit-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin: 3rem auto 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.submit-btn:hover::before {
+  left: 0;
+}
+
+.submit-btn:hover {
+  color: #000;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.success-message,
+.error-message {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  background: rgba(46, 213, 115, 0.1);
+  color: #2ed573;
+  border: 1px solid rgba(46, 213, 115, 0.2);
+}
+
+.error-message {
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff4757;
+  border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 5rem;
+  color: #666;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  
+}
+
+/* Floating Elements */
+.floating-element {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  
+  .contact-form {
+    padding: 0 10px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}

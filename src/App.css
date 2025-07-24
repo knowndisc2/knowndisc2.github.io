@@ -1,36 +1,205 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@font-face {
-  font-family: 'Canopee';
-  src: url('https://fonts.cdnfonts.com/s/86640/Canopee.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
+
+:root {
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --accent-color: #ff3366;
+  --text-color: #333333;
+  --transition-speed: 0.4s;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base HTML and Body */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
-  background: #fff;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  color: #111;
-  margin: 0;
-  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Root Container */
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Main Container */
+#main-container {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  
+  /* Add bottom margin on mobile to prevent content from being hidden behind fixed footer */
+  @media (max-width: 768px) {
+    padding-bottom: 70px; /* Slightly more than footer height to ensure content is visible */
+  }
+}
+
+/* App Container */
+.app-container {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: visible;
+}
+
+/* Smooth scrolling for sections */
+section {
+  scroll-margin-top: 80px; /* Adjust based on your header height */
+}
+
+/* Fix for iOS elastic scrolling */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    position: relative;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Animation classes */
+[data-scroll] {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+[data-scroll].is-inview {
+  opacity: 1;
+}
+
+/* Fix for position sticky elements */
+[data-scroll-sticky] {
+  will-change: transform;
+}
+
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+  display: none;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* For Edge and IE */
+body {
+  -ms-overflow-style: none;
+}
+
+/* Left border with scrolling text */
+@keyframes scrollText {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.left-border {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  z-index: 10;
+  height: 100vh;
+  background: #000;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1; /* Changed from 2 to 1 to be above the parallax background */
+  background: rgba(255, 255, 255, 0.9);
   min-height: 100vh;
-  transition: background 0.5s;
-  scroll-behavior: smooth;
+  margin-left: -80px;
+  padding-left: 80px;
+  padding-top: 1px; /* Prevent margin collapse */
+}
+
+.scrolling-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  color: #fff;
+  font-family: 'Canopee', serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 2.5;
+  padding: 0 5px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  animation: scrollText 30s linear infinite;
+  will-change: transform;
+  transform: rotate(180deg);
+  transform-origin: 40px 0;
+}
+
+/* App Layout */
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  color: white;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .App {
   background: #fff;
   min-height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  padding-bottom: 150px; /* Space for the fixed footer */
 }
 
 main, .main-content {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 3000px;
   padding: 0 2vw;
   width: 100%;
   box-sizing: border-box;
@@ -38,7 +207,7 @@ main, .main-content {
 
 section {
   width: 100%;
-  max-width: 1100px;
+  max-width: 3000px;
   margin: 0 auto 4vw auto;
   box-sizing: border-box;
   transition: background 0.5s, color 0.5s;
@@ -91,14 +260,47 @@ section, .gallery-horizontal-section {
 }
 
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 900px) {
+  html {
+    font-size: 14px;
+  }
+  
   main, .main-content, section {
-    max-width: 98vw;
-    padding-left: 3vw;
+    max-width: 100%;
+    padding: 0 4vw;
+    margin: 0 auto;
     padding-right: 3vw;
   }
   .hero-title, .about-title, .shop-title {
     font-size: 6vw;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  section {
+    scroll-margin-top: 70px;
+  }
+  
+  /* Improve touch targets */
+  button, 
+  [role="button"],
+  a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 @media (max-width: 600px) {

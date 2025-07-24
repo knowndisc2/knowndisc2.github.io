@@ -1,122 +1,102 @@
-/* About section: horizontal row, centered, responsive */
-.about-section {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100vw;
-  min-height: 100px;
-  background: #f3f3f3;
-  color: #111;
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 1.1vw;
-  font-weight: 700;
+.about-section-wrapper {
+  background-color: #f3f3f3;
+  padding: 4rem 6%;
+  width: 100%;
   box-sizing: border-box;
-  padding: 2vw 0 0 0;
+}
+
+.about-section {
+  max-width: 1200px; /* Wider */
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #111;
+  display: flex;
+  flex-direction: column;
 }
 
 .about-nav {
-  display: flex;
+  margin-bottom: 2rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Canopee&display=swap');
+
+.about-nav-btn {
+  display: inline-flex;
   align-items: center;
-  font-size: 1.15vw;
-  font-weight: 700;
-  margin-left: 1vw;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+  background: none;
+  border: none;
+  font-family: 'Canopee', serif;
+  font-size: 2.8rem; /* Slightly larger for Canopee */
+  font-weight: 400; /* Normal weight for Canopee */
   color: #111;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -0.02em; /* Tighter letter spacing for Canopee */
+  line-height: 1; /* Tighter line height for title */
 }
 
 .about-arrow {
   display: inline-flex;
-  align-items: center;
-  margin-left: 0.4em;
-  margin-top: 0.1em;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.about-arrow svg {
+  width: 18px; /* Slightly bigger arrow */
+  height: 18px;
+}
+
+.about-nav-btn:hover .about-arrow {
+  transform: translateX(4px);
 }
 
 .about-main {
-  flex: 1 1 auto;
-  max-width: 600px;
-  margin: 0 2vw;
-  font-size: 1.1vw;
-  font-weight: 700;
+  font-size: 1.25rem; /* Slightly smaller for better readability */
+  line-height: 1.6;
+  font-weight: 400; /* Normal weight for body text */
   color: #111;
-  text-align: left;
-  line-height: 1.18;
-  letter-spacing: 0.01em;
-  background: none;
-  padding: 0;
-  display: flex;
-  align-items: flex-start;
+  max-width: 800px; /* Slightly narrower for better reading */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .about-main b {
-  font-size: 1.1vw;
-  font-weight: 700;
-  color: #111;
-  text-align: left;
-  line-height: 1.18;
-  letter-spacing: 0.01em;
-  background: none;
-  padding: 0;
-  margin: 0;
+  font-weight: 400; /* No bold */
   display: block;
+  margin-bottom: 1em;
+  font-size: 1.3rem; /* Slightly larger for first line */
 }
 
-.about-copyright {
-  margin-right: 1vw;
-  font-size: 1.1vw;
-  font-weight: 700;
-  color: #111;
-  white-space: nowrap;
-  letter-spacing: 0.01em;
-  align-self: flex-start;
-}
-
-.about-copyright b {
-  font-weight: 700;
-}
-
-@media (max-width: 900px) {
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .about-section {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 2.6vw;
-    padding: 3vw 0 0 0;
+    padding: 3rem 4%;
   }
-  .about-nav {
-    font-size: 2.6vw;
-    margin-left: 2vw;
-    margin-bottom: 1vw;
+
+  .about-main {
+    font-size: 1.1rem;
+    max-width: 95%;
   }
-  .about-main, .about-main b {
-    font-size: 2.6vw;
-    max-width: 95vw;
-    margin: 0 2vw 1vw 2vw;
+
+  .about-main b {
+    font-size: 1.2rem;
   }
-  .about-copyright {
-    font-size: 2.6vw;
-    margin-right: 2vw;
-    margin-bottom: 1vw;
+
+  .about-nav-btn {
+    font-size: 1.2rem;
   }
 }
 
-@media (max-width: 600px) {
-  .about-section {
-    padding: 4vw 0 0 0;
+@media (max-width: 480px) {
+  .about-main {
+    font-size: 1rem;
   }
-  .about-nav, .about-main, .about-main b, .about-copyright {
-    font-size: 3.7vw;
+
+  .about-main b {
+    font-size: 1.1rem;
   }
-  .about-main, .about-main b {
-    max-width: 98vw;
-    margin: 0 1vw 1vw 1vw;
-  }
-  .about-nav {
-    margin-left: 2vw;
-    margin-bottom: 2vw;
-  }
-  .about-copyright {
-    margin-right: 2vw;
-    margin-bottom: 2vw;
+
+  .about-nav-btn {
+    font-size: 1rem;
   }
 }

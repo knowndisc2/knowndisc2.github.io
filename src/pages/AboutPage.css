@@ -1,46 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Canopee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Base styles for mobile first */
 .aboutme-main {
-  background: #fff;
+  background: #f3f3f3;
   color: #111;
-  min-height: 80vh;
-  max-width: 840px;
-  margin: 0 auto;
-  padding: 5vw 2vw 5vw 2vw;
+  width: 90%;
+  max-height: 70vh; /* Set a max height for scrolling */
+  margin: 120px auto 3rem;
+  padding: 2rem 5%;
   display: flex;
   flex-direction: column;
-  gap: 4vw;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+  overflow-y: auto; /* Enable vertical scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overscroll-behavior-y: contain; /* Prevent scroll chaining */
+  overscroll-behavior-x: none;
+
+  @media (min-width: 768px) {
+    width: 70%;
+    max-height: none; /* Remove max height on desktop */
+    margin: 160px auto 0;
+    padding: 4rem 5%;
+    gap: 3rem;
+    border-radius: 16px;
+    overflow-y: visible; /* Disable scrolling on desktop */
+  }
+  
+  @media (min-width: 1200px) {
+    width: 50%;
+    margin: 200px auto 0;
+    
+  }
 }
+
 .aboutme-hero {
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+  flex-shrink: 0; /* Prevent shrinking */
+  
+  @media (min-width: 768px) {
+    padding: 0 20px;
+  }
 }
+
 .aboutme-title {
   font-family: 'Canopee', serif;
-  font-size: 4vw;
-  font-weight: 900;
-  margin-bottom: 1vw;
-  letter-spacing: -1px;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.6s;
 }
+
 .aboutme-body {
-  font-family: 'Inter', 'DM Sans', Arial, sans-serif;
-  font-size: 1.3vw;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
   color: #222;
   line-height: 1.6;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 0.5rem auto;
+  font-weight: 400;
+  padding: 0 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.8s;
+  
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding: 0 1rem;
+  }
 }
+
 .aboutme-details {
   text-align: left;
-  margin: 0 auto;
   max-width: 700px;
+  margin: 0 auto;
+  padding: 0 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 1s;
+  
+  @media (min-width: 768px) {
+    padding: 0 20px;
+  }
 }
+
 .aboutme-details h2 {
   font-family: 'Canopee', serif;
-  font-size: 2vw;
-  margin-top: 2vw;
-  margin-bottom: 0.5vw;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1.5rem 0 0.8rem 0;
+  color: #000;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+  }
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 1.2s;
 }
+
 .aboutme-details p {
-  font-family: 'Inter', 'DM Sans', Arial, sans-serif;
-  font-size: 1.1vw;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.1rem;
   color: #222;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 1.4s;
 }

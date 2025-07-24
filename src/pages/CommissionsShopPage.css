@@ -1,52 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Canopee&display=swap');
+
 .commshop-main {
-  background: #fff;
-  color: #111;
-  min-height: 80vh;
-  max-width: 800px;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start; /* Changed from center to flex-start for better mobile layout */
+  justify-content: center;
+  padding: 0 0 2rem 0; /* Added bottom padding for mobile */
+  background-color: #f5f5f5;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overscroll-behavior-y: contain; /* Prevent scroll chaining */
+}
+
+.commshop-hero {
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 7vw 2vw 7vw 2vw;
+  position: relative;
+  z-index: 1;
+}
+
+.commshop-content {
   display: flex;
   flex-direction: column;
-  gap: 4vw;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 80vh; /* Reduced from 100vh to prevent overflow */
+  max-height: 90vh; /* Added max-height for scrolling */
+  background: white;
+  position: relative;
+  overflow-y: auto; /* Enable vertical scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overscroll-behavior-y: contain; /* Prevent scroll chaining */
+  margin: 100px 0 2rem; /* Added margin for header and footer */
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    min-height: 100vh; /* Full height on desktop */
+    max-height: none; /* Remove max height on desktop */
+    margin: 0; /* Reset margin on desktop */
+    overflow-y: visible; /* Disable scrolling on desktop */
+  }
 }
-.commshop-hero {
-  text-align: center;
+
+.commshop-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  padding: 2rem 1rem;
+  min-height: 200px;
+  
+  @media (min-width: 768px) {
+    padding: 2rem;
+    min-height: auto;
+  }
 }
+
+.commshop-right {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from center to flex-start for better mobile flow */
+  min-height: 0; /* Allows the content to shrink if needed */
+  
+  @media (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
+}
+
 .commshop-title {
   font-family: 'Canopee', serif;
-  font-size: 4vw;
-  font-weight: 900;
-  margin-bottom: 1vw;
-  letter-spacing: -1px;
+  font-size: 3rem;
+  color: #111;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin: 0;
+  writing-mode: horizontal-tb;
+  transform: none;
+  white-space: nowrap;
+  text-align: center;
+  
+  @media (min-width: 768px) {
+    font-size: 5vw;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    line-height: 0.9;
+  }
 }
-.commshop-body {
-  font-family: 'Inter', 'DM Sans', Arial, sans-serif;
-  font-size: 1.3vw;
+
+.commshop-intro {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 1.5rem;
+  
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+}
+
+.commshop-section {
+  margin-bottom: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.commshop-section h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.commshop-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1.5rem;
+  
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+}
+
+.commshop-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.commshop-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
   color: #222;
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
-  background: #f5f5f5;
-  border-radius: 1.5vw;
-  padding: 2vw 2vw;
-  box-shadow: 0 2px 16px #0001;
+  position: relative;
+  display: inline-block;
 }
+
+.commshop-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #000;
+  border-radius: 3px;
+}
+
+.commshop-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.commshop-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.commshop-button svg {
+  transition: transform 0.3s ease;
+}
+
+.commshop-button:hover svg {
+  transform: translateX(5px);
+}
+
+.vgen-button {
+  background: #000;
+  color: white;
+  border: 1px solid #000;
+}
+
+.vgen-button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.email-button {
+  background: transparent;
+  color: #000;
+  border: 1px solid #000 !important;
+}
+
+.email-button:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .commshop-content {
+    margin-bottom: 5rem; /* Added bottom margin for mobile */
+  }
+}
+
+@media (max-width: 1024px) {
+  .commshop-content {
+    flex-direction: column;
+  }
+  
+  .commshop-left {
+    padding: 4rem 2rem;
+  }
+  
+  .commshop-right {
+    padding: 0 2rem 4rem;
+  }
+  
+  .commshop-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 4rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .commshop-main {
+    padding: 0;
+  }
+  
+  .commshop-left {
+    padding: 3rem 1.5rem;
+  }
+  
+  .commshop-right {
+    padding: 0 1.5rem 3rem;
+  }
+  
+  .commshop-title {
+    font-size: 3.5rem;
+  }
+  
+  .commshop-intro {
+    font-size: 1.3rem;
+  }
+  
+  .commshop-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .commshop-section p {
+    font-size: 1rem;
+  }
+  
+  .commshop-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .commshop-button {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .commshop-left {
+    padding: 2.5rem 1rem;
+  }
+  
+  .commshop-right {
+    padding: 0 1rem 2.5rem;
+  }
+  
+  .commshop-title {
+    font-size: 2.8rem;
+  }
+  
+  .commshop-intro {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .commshop-section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .commshop-section h2 {
+    font-size: 1.2rem;
+  }
+  
+  .commshop-section p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Contact link styles */
 .commshop-contact {
   font-family: 'Inter', Arial, sans-serif;
-  font-size: 1.1vw;
-  color: #25283B;
+  font-size: 1.1rem;
+  color: #111;
   text-decoration: underline;
   font-weight: 600;
+  transition: color 0.2s ease;
 }
-@media (max-width: 900px) {
-  .commshop-title {
-    font-size: 7vw;
-  }
-  .commshop-body {
-    font-size: 2.3vw;
-    padding: 3vw 2vw;
-  }
+
+.commshop-contact:hover {
+  color: #555;
 }
+
+.commshop-title {
+  font-size: 7vw;
+}
+
+.commshop-body {
+  font-size: 2.3vw;
+  padding: 3vw 2vw;
+}
+
 @media (max-width: 600px) {
   .commshop-title {
     font-size: 11vw;
